@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --header-bg: #ffffff;
+  --text-muted: #64748b;
+}
+
+.dark {
+  --background: #0b0f19;
+  --foreground: #f8fafc;
+  --card-bg: #111827;
+  --card-border: #1f2937;
+  --header-bg: #111827;
+  --text-muted: #94a3b8;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}
+
+/* Dynamic Live Price Flashes */
+@keyframes flashUp {
+  0% { background-color: rgba(16, 185, 129, 0.35); color: #059669; }
+  100% { background-color: transparent; }
+}
+
+@keyframes flashDown {
+  0% { background-color: rgba(244, 63, 94, 0.35); color: #e11d48; }
+  100% { background-color: transparent; }
+}
+
+.price-flash-up {
+  animation: flashUp 1.8s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.price-flash-down {
+  animation: flashDown 1.8s cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+}
