@@ -7,6 +7,9 @@
 [![Node.js](https://img.shields.io/badge/Node.js-API-68a063?style=for-the-badge&logo=nodedotjs)](https://nodejs.org/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fthekarannagpal%2Fstock_portfolio)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/thekarannagpal/stock_portfolio)
+
 A modern, high-performance **Dynamic Portfolio Dashboard** built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**, and **Node.js API routes**. The dashboard provides real-time financial tracking, auto-refreshing prices from **Yahoo Finance**, valuation metrics (P/E ratios & quarterly earnings) from **Google Finance**, sector grouping accordions, and interactive data visualizations.
 
 ---
