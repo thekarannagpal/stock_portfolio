@@ -76,7 +76,7 @@ export default function Home() {
 
     try {
       const tickers = rawHoldings.map(h => h.ticker).join(",");
-      const res = await axios.get(`/api/portfolio?tickers=${encodeURIComponent(tickers)}&force=${force}`);
+      const res = await axios.get(`/api/portfolio?tickers=${encodeURIComponent(tickers)}&force=${force}&_t=${Date.now()}`);
       
       if (res.data?.success && res.data?.data) {
         setLivePrices(res.data.data);

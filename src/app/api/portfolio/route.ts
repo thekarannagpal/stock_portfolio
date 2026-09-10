@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
 
+// Force Vercel Serverless Function to execute dynamically on every request (no static caching)
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // In-memory cache for API responses
 interface CacheEntry {
   timestamp: number;
@@ -137,11 +141,20 @@ export async function GET(request: NextRequest) {
     data: stockDataMap
   };
 
-  return NextResponse.json({
-    success: true,
-    timestamp: new Date(now).toISOString(),
-    isCached: false,
-    isMock: !anyLiveSuccess,
-    data: stockDataMap
-  });
+  return NextResponse.json(
+    {
+      success: true,
+      timestamp: new Date(now).toISOString(),
+      isCached: false,
+      isMock: !anyLiveSuccess,
+      data: stockDataMap
+    },
+    {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    }
+  );
 }
